@@ -26,3 +26,7 @@ def add_task():
     cursor.execute("INSERT INTO Tasks (task) VALUES (?)", (task,))
     conn.commit()
     return jsonify({"message": "Task added"}), 201
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
